@@ -6,23 +6,30 @@
 #
 
 LOCAL_PATH := device/doogee/P2TH
-# A/B
+
+# A/B OTA Configuration
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
     FILESYSTEM_TYPE_system=ext4 \
     POSTINSTALL_OPTIONAL_system=true
 
-# Boot control HAL
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service
-
-PRODUCT_PACKAGES += \
-    bootctrl.mt6789
-
+# Boot control HAL (Modern Shared Version)
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
     android.hardware.boot@1.0-service \
     android.hardware.boot@1.0-impl.recovery \
+    bootctrl.mt6789 \
     bootctrl.mt6789.recovery
+
+# Update Engine
+PRODUCT_PACKAGES += \
+    update_engine \
+    update_engine_sideload \
+    update_verifier
+
+# Additional recovery dependencies
+PRODUCT_PACKAGES += \
+    libgptutils \
+    libz \
+    libcutils
