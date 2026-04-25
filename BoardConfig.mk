@@ -1,4 +1,4 @@
-##
+#
 # Copyright (C) 2026 The Android Open Source Project
 # Copyright (C) 2026 SebaUbuntu's TWRP device tree generator
 #
@@ -8,18 +8,11 @@
 ALLOW_MISSING_DEPENDENCIES := true
 DEVICE_PATH := device/doogee/P2TH
 
-# Force Vendor Boot Flags (Move these to the top)
+# Force Vendor Boot Flags
 BOARD_USES_VENDOR_BOOTIMAGE := true
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
-BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 BOARD_USES_RECOVERY_AS_BOOT := false
-TARGET_NO_RECOVERY := true
-
-ALLOW_MISSING_DEPENDENCIES := true
-
-DEVICE_PATH := device/doogee/P2TH
-
-BOARD_USES_VENDOR_BOOTIMAGE := true
+TARGET_NO_RECOVERY := false
 
 # For touch support
 TW_THEME := portrait_hdpi
@@ -77,17 +70,16 @@ TARGET_BOARD_PLATFORM := mt6789
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-BOARD_USES_RECOVERY_AS_BOOT := false
-TARGET_NO_RECOVERY := false
 BOARD_HAS_NO_REAL_SDCARD := true
 
 # TWRP Configuration
 TW_DEVICE_VERSION := Doogee_P2TH_V1
 TW_INCLUDE_CRYPTO := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TW_MAX_BRIGHTNESS := 255
+TW_DEFAULT_BRIGHTNESS := 162
 
 # Vendor Boot Configuration
-# BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_COPY_KERNEL_MODULES_TO_SYSTEM := true
 
@@ -98,5 +90,3 @@ BOARD_USES_MTK_HARDWARE := true
 # File Systems
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
-TW_MAX_BRIGHTNESS := 255
-TW_DEFAULT_BRIGHTNESS := 162
