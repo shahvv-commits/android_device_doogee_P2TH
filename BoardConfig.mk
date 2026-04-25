@@ -1,9 +1,19 @@
-#
+##
 # Copyright (C) 2026 The Android Open Source Project
 # Copyright (C) 2026 SebaUbuntu's TWRP device tree generator
 #
 # SPDX-License-Identifier: Apache-2.0
 #
+
+ALLOW_MISSING_DEPENDENCIES := true
+DEVICE_PATH := device/doogee/P2TH
+
+# Force Vendor Boot Flags (Move these to the top)
+BOARD_USES_VENDOR_BOOTIMAGE := true
+BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
+BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
+BOARD_USES_RECOVERY_AS_BOOT := false
+TARGET_NO_RECOVERY := true
 
 ALLOW_MISSING_DEPENDENCIES := true
 
