@@ -8,11 +8,14 @@
 ALLOW_MISSING_DEPENDENCIES := true
 DEVICE_PATH := device/doogee/P2TH
 
-# Force Vendor Boot Flags (Android 14 GKI Requirements)
+# Force Vendor Boot Flags (The Android 14 GKI Trinity)
 BOARD_USES_VENDOR_BOOTIMAGE := true
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
+BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
+
+# Global Build Flags
 BOARD_USES_RECOVERY_AS_BOOT := false
-TARGET_NO_RECOVERY := false
+TARGET_NO_RECOVERY := true
 
 # For touch support
 TW_THEME := portrait_hdpi
