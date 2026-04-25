@@ -33,3 +33,7 @@ PRODUCT_PACKAGES += \
     libgptutils \
     libz \
     libcutils
+
+# Inherit from the generic recovery configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_no_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
