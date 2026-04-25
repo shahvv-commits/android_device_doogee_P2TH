@@ -9,6 +9,8 @@ ALLOW_MISSING_DEPENDENCIES := true
 
 DEVICE_PATH := device/doogee/P2TH
 
+BOARD_USES_VENDOR_BOOTIMAGE := true
+
 # For touch support
 TW_THEME := portrait_hdpi
 TW_EXTRA_LANGUAGES := true
