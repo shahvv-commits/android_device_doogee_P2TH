@@ -8,7 +8,7 @@
 ALLOW_MISSING_DEPENDENCIES := true
 DEVICE_PATH := device/doogee/P2TH
 
-# Force Vendor Boot Flags (The mandatory pair)
+# Force Vendor Boot Flags
 BOARD_USES_VENDOR_BOOTIMAGE := true
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
 
@@ -19,18 +19,6 @@ BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
 BOARD_USES_RECOVERY_AS_BOOT := false
 AB_OTA_UPDATER := true
 TARGET_NO_RECOVERY := false
-
-# Logic for GKI/Header Version 4
-AB_OTA_UPDATER := true
-TARGET_NO_RECOVERY := true
-
-# Force A/B logic to satisfy vendor_boot requirements
-AB_OTA_UPDATER := true
-TARGET_NO_RECOVERY := true
-
-# Global Build Flags
-BOARD_USES_RECOVERY_AS_BOOT := false
-TARGET_NO_RECOVERY := true
 
 # For touch support
 TW_THEME := portrait_hdpi
