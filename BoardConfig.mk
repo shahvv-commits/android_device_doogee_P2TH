@@ -1,67 +1,25 @@
-DEVICE_PATH := device/doogee/P2TH
+# Inherit from those products. Most specific first.
+$(call inherit-product,$(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product,$(SRC_TARGET_DIR)/product/core_64bit.mk)
 
-# For touch control in TWRP
-DEVICE_SCREEN_WIDTH := 1200
-DEVICE_SCREEN_HEIGHT := 2000
+# Inherit from P2TH device
+$(call inherit-product,device/doogee/P2TH/device.mk)
 
-# Architecture
-TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-a
-TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := generic
+# Inherit some common Omni stuff.
+$(call inherit-product,vendor/omni/config/common.mk)
 
-TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv7-a-neon
-TARGET_2ND_CPU_ABI := armeabi-v7a
-TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := generic
+# Device identifier
+PRODUCT_DEVICE := P2TH
+PRODUCT_NAME := omni_P2TH
+PRODUCT_BRAND := Doogee
+PRODUCT_MODEL := P2TH
+PRODUCT_MANUFACTURER := doogee
 
-# Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := P2TH
-TARGET_NO_BOOTLOADER := true
+PRODUCT_GMS_CLIENTID_BASE := android-doogee
 
-# Display
-TARGET_SCREEN_DENSITY := 280
-
-# Kernel - GKI requirements for Android 12
-BOARD_BOOTIMG_HEADER_VERSION := 4
-BOARD_KERNEL_PAGESIZE := 4096
-BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
-BOARD_KERNEL_IMAGE_NAME := Image.gz
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_HEADER_ARCH := arm64
-
-# Partitions
-BOARD_FLASH_BLOCK_SIZE := 262144
-BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
-BOARD_HAS_RECOVERY_PARTITION := true
-
-# Dynamic Partitions
-BOARD_SUPER_PARTITION_SIZE := 9126805504
-BOARD_SUPER_PARTITION_GROUPS := doogee_dynamic_partitions
-BOARD_DOOGEE_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor
-BOARD_DOOGEE_DYNAMIC_PARTITIONS_SIZE := 9122611200
-
-# File System Types
-TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USERIMAGES_USE_F2FS := true
-BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
-
-# TWRP Configuration
-TW_THEME := portrait_hdpi
-TW_EXTRA_LANGUAGES := true
-TW_INPUT_BLACKLIST := "hbtp_vm"
-TW_USE_TOOLBOX := true
-TW_INCLUDE_REPACKTOOLS := true
-TW_MAX_BRIGHTNESS := 255
-TW_DEFAULT_BRIGHTNESS := 120
-TW_NO_BIND_MOUNTS := true
-
-# GKI / Android 12 Recovery Logic
-BOARD_USES_RECOVERY_AS_BOOT := false
-TARGET_NO_RECOVERY := false
-BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
+# GKI Build Flags
+PRODUCT_BUILD_VENDOR_BOOT_IMAGE := true
+PRODUCT_BUILD_RECOVERY_IMAGE := true
 
 # Platform
-TARGET_BOARD_PLATFORM := mt6789
+PRODUCT_PLATFORM := mt6789
