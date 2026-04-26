@@ -11,12 +11,14 @@ DEVICE_PATH := device/doogee/P2TH
 # Force Vendor Boot Flags (The mandatory pair)
 BOARD_USES_VENDOR_BOOTIMAGE := true
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
-BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
+
+# Commenting this out to bypass the "Sanity Check" crash
+# BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 
 # Global Build Flags
 BOARD_USES_RECOVERY_AS_BOOT := false
 AB_OTA_UPDATER := true
-TARGET_NO_RECOVERY := true
+TARGET_NO_RECOVERY := false
 
 # Logic for GKI/Header Version 4
 AB_OTA_UPDATER := true
