@@ -8,20 +8,16 @@
 ALLOW_MISSING_DEPENDENCIES := true
 DEVICE_PATH := device/doogee/P2TH
 
-# Force Vendor Boot Flags (The "Safe" Way)
+# Force Vendor Boot Flags (The mandatory matched pair)
 BOARD_USES_VENDOR_BOOTIMAGE := true
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
-
-# Commented out to stop the "Sanity Check" crash
-# BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
+BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 
 # Global Build Flags
 BOARD_USES_RECOVERY_AS_BOOT := false
-
-# CRITICAL: Keep this FALSE so the compiler actually builds the ramdisk
 TARGET_NO_RECOVERY := false
 
-# Force Header v4 for Android 14 GKI
+# Force Header v4
 BOARD_BOOTIMG_HEADER_VERSION := 4
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 
