@@ -8,6 +8,14 @@
 ALLOW_MISSING_DEPENDENCIES := true
 DEVICE_PATH := device/doogee/P2TH
 
+# Force the creation of the vendor_boot image
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 100663296
+BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
+BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
+
+# Required for Android 12+ GKI packaging
+BOARD_COPY_KERNEL_MODULES_TO_SYSTEM := true
+
 # Minimal GKI Flags to bypass script validation
 BOARD_USES_VENDOR_BOOTIMAGE := true
 BOARD_BOOTIMG_HEADER_VERSION := 4
