@@ -1,60 +1,27 @@
-DEVICE_PATH := device/doogee/P2TH
+# Inherit from those products. Most specific first.
+# We check both common naming variations for Android 12
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Architecture
-TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-a
-TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_ABI2 := 
-TARGET_CPU_VARIANT := generic
-TARGET_CPU_VARIANT_RUNTIME := cortex-a76
+# Inherit from P2TH device
+$(call inherit-product, device/doogee/P2TH/device.mk)
 
-TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv7-a-neon
-TARGET_2ND_CPU_ABI := armeabi-v7a
-TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := generic
-TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
+# Inherit some common Omni stuff.
+$(call inherit-product, vendor/omni/config/common.mk)
 
-# Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := P2TH
-TARGET_NO_BOOTLOADER := true
+# Device identifier
+PRODUCT_DEVICE := P2TH
+PRODUCT_NAME := omni_P2TH
+PRODUCT_BRAND := Doogee
+PRODUCT_MODEL := P2TH
+PRODUCT_MANUFACTURER := doogee
+
+PRODUCT_GMS_CLIENTID_BASE := android-doogee
+
+# GKI Build Flags
+PRODUCT_BUILD_VENDOR_BOOT_IMAGE := true
+PRODUCT_BUILD_RECOVERY_IMAGE := true
 
 # Platform
-TARGET_BOARD_PLATFORM := mt6789
-TARGET_BOARD_SUFFIX := _64
-TARGET_USES_64_BIT_BINDER := true
-
-# Kernel - GKI Architecture (Header Version 4 is required for Android 12 GKI)
-BOARD_BOOT_HEADER_VERSION := 4
-BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
-BOARD_KERNEL_IMAGE_NAME := Image.gz
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_HEADER_ARCH := arm64
-
-# Partitions
-BOARD_FLASH_BLOCK_SIZE := 131072
-BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
-BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
-
-# File System
-BOARD_HAS_LARGE_FILESYSTEM := true
-BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
-BOARD_USERDATAIMAGE_PARTITION_TYPE := f2fs
-BOARD_VENDORIMAGE_PARTITION_TYPE := ext4
-
-# TWRP Configuration
-TW_THEME := portrait_hdpi
-TW_EXTRA_LANGUAGES := true
-TW_INPUT_BLACKLIST := "hbtp_vm"
-TW_USE_TOOLBOX := true
-TW_INCLUDE_CRYPTO := true
-TW_MAX_BRIGHTNESS := 2047
-TW_DEFAULT_BRIGHTNESS := 1200
-
-# Metadata
-BOARD_USES_METADATA_PARTITION := true
-
-# Debugging
-TARGET_USES_LOGD := true
-TW_DEVICE_VERSION := Nico_Build_67
+PRODUCT_PLATFORM := mt6789
