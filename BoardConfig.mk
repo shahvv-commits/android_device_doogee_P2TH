@@ -8,6 +8,8 @@
 ALLOW_MISSING_DEPENDENCIES := true
 DEVICE_PATH := device/doogee/P2TH
 
+TW_DEVICE_VERSION := Doogee_P2TH_V2_FIXED
+
 # Minimal GKI Flags to bypass script validation
 BOARD_USES_VENDOR_BOOTIMAGE := true
 BOARD_BOOTIMG_HEADER_VERSION := 4
