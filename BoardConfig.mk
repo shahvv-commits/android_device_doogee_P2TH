@@ -8,8 +8,6 @@
 ALLOW_MISSING_DEPENDENCIES := true
 DEVICE_PATH := device/doogee/P2TH
 
-TW_DEVICE_VERSION := Doogee_P2TH_V2_FIXED
-
 # Minimal GKI Flags to bypass script validation
 BOARD_USES_VENDOR_BOOTIMAGE := true
 BOARD_BOOTIMG_HEADER_VERSION := 4
@@ -83,7 +81,7 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_HAS_NO_REAL_SDCARD := true
 
 # TWRP Configuration
-TW_DEVICE_VERSION := Doogee_P2TH_V1
+TW_DEVICE_VERSION := Doogee_P2TH_V2_FIXED
 TW_INCLUDE_CRYPTO := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
