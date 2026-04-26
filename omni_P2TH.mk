@@ -4,14 +4,12 @@ PRODUCT_NAME := omni_P2TH
 PRODUCT_BRAND := Doogee
 PRODUCT_MODEL := P2TH
 PRODUCT_MANUFACTURER := doogee
-
-# Force the platform for MediaTek
 PRODUCT_PLATFORM := mt6789
 
 # Inherit from those products. Most specific first.
-# Using the Minimal Manifest pathing (skipping the build/make prefix)
-$(call inherit-product, target/product/core_64bit.mk)
-$(call inherit-product, target/product/full_base_telephony.mk)
+# $(SRC_TARGET_DIR) is the official variable for the 'target' directory
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from P2TH device configuration
 $(call inherit-product, device/doogee/P2TH/device.mk)
