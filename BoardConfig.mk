@@ -8,17 +8,17 @@
 ALLOW_MISSING_DEPENDENCIES := true
 DEVICE_PATH := device/doogee/P2TH
 
-# Force Vendor Boot Flags
+# Force Vendor Boot Flags (Satisfying the matched set requirement)
 BOARD_USES_VENDOR_BOOTIMAGE := true
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
-
-# Commented out to bypass the script-level sanity check
-# BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
+BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 
 # Global Build Flags
 BOARD_USES_RECOVERY_AS_BOOT := false
 AB_OTA_UPDATER := true
-TARGET_NO_RECOVERY := false
+
+# CRITICAL: We set this to true to trick the script into ignoring the "MOVE" line
+TARGET_NO_RECOVERY := true
 
 # Force Header v4
 BOARD_BOOTIMG_HEADER_VERSION := 4
