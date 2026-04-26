@@ -12,22 +12,18 @@ DEVICE_PATH := device/doogee/P2TH
 BOARD_USES_VENDOR_BOOTIMAGE := true
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
 
-# Comment this one out to stop the crash
+# Commented out to stop the "Sanity Check" crash
 # BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
-
-# Use these instead to satisfy Android 14 GKI requirements
-BOARD_BOOTIMG_HEADER_VERSION := 4
-BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 
 # Global Build Flags
 BOARD_USES_RECOVERY_AS_BOOT := false
+
+# CRITICAL: Keep this FALSE so the compiler actually builds the ramdisk
 TARGET_NO_RECOVERY := false
 
-# CRITICAL: We set this to true to trick the script into ignoring the "MOVE" line
-TARGET_NO_RECOVERY := true
-
-# Force Header v4
+# Force Header v4 for Android 14 GKI
 BOARD_BOOTIMG_HEADER_VERSION := 4
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 
 # For touch support
 TW_THEME := portrait_hdpi
