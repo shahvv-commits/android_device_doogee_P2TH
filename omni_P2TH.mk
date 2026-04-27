@@ -7,7 +7,7 @@ PRODUCT_MANUFACTURER := doogee
 PRODUCT_PLATFORM := mt6789
 
 # Inherit from those products.
-# We use abspath to lock the compiler onto the physical root directory location.
+# Standard AOSP inheritance paths with abspath lockdown.
 $(call inherit-product, $(abspath target/product/core_64bit.mk))
 $(call inherit-product, $(abspath target/product/full_base_telephony.mk))
 
