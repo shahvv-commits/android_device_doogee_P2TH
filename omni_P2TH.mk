@@ -7,9 +7,9 @@ PRODUCT_MANUFACTURER := doogee
 PRODUCT_PLATFORM := mt6789
 
 # Inherit from those products. Most specific first.
-# $(SRC_TARGET_DIR) is the official variable for the 'target' directory
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+# These paths bypass the 'build/make' error by pointing to the root-level target
+$(call inherit-product, target/product/core_64bit.mk)
+$(call inherit-product, target/product/full_base_telephony.mk)
 
 # Inherit from P2TH device configuration
 $(call inherit-product, device/doogee/P2TH/device.mk)
