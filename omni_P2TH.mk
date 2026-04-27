@@ -6,10 +6,10 @@ PRODUCT_MODEL := P2TH
 PRODUCT_MANUFACTURER := doogee
 PRODUCT_PLATFORM := mt6789
 
-# Standard AOSP inheritance paths.
-# Build #106 YAML will physically place 'target' in the root to match these lines.
-$(call inherit-product, target/product/core_64bit.mk)
-$(call inherit-product, target/product/full_base_telephony.mk)
+# Inherit from those products.
+# We use abspath to lock the compiler onto the physical root directory location.
+$(call inherit-product, $(abspath target/product/core_64bit.mk))
+$(call inherit-product, $(abspath target/product/full_base_telephony.mk))
 
 # Inherit from P2TH device configuration
 $(call inherit-product, device/doogee/P2TH/device.mk)
