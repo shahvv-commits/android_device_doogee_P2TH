@@ -7,9 +7,9 @@ PRODUCT_MANUFACTURER := doogee
 PRODUCT_PLATFORM := mt6789
 
 # Inherit from those products. Most specific first.
-# Using relative paths for Minimal Manifest compatibility
-$(call inherit-product, target/product/core_64bit.mk)
-$(call inherit-product, target/product/full_base_telephony.mk)
+# $(SRC_TARGET_DIR) is the internal variable that ALWAYS points to the target files
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from P2TH device configuration
 $(call inherit-product, device/doogee/P2TH/device.mk)
