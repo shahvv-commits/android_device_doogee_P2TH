@@ -7,10 +7,9 @@ PRODUCT_MANUFACTURER := doogee
 PRODUCT_PLATFORM := mt6789
 
 # Standard AOSP inheritance. 
-# Do NOT add 'build/make' or any variables here. 
-# The build system resolves 'target/product/' automatically.
-$(call inherit-product, target/product/core_64bit.mk)
-$(call inherit-product, target/product/full_base_telephony.mk)
+# We use $(gettop) to ensure the path is absolute from the workspace root.
+$(call inherit-product, $(gettop)/build/make/target/product/core_64bit.mk)
+$(call inherit-product, $(gettop)/build/make/target/product/full_base_telephony.mk)
 
 # Inherit from P2TH device configuration
 $(call inherit-product, device/doogee/P2TH/device.mk)
