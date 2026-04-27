@@ -6,6 +6,10 @@ PRODUCT_MODEL := P2TH
 PRODUCT_MANUFACTURER := doogee
 PRODUCT_PLATFORM := mt6789
 
+# Architecture Declarations
+# This tells the build system we are explicitly building for 64-bit
+TARGET_SUPPORTS_64_BIT_APPS := true
+
 # Inherit from P2TH device configuration
 $(call inherit-product, device/doogee/P2TH/device.mk)
 
