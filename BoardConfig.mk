@@ -1,22 +1,56 @@
-# Device identifier
-PRODUCT_DEVICE := P2TH
-PRODUCT_NAME := omni_P2TH
-PRODUCT_BRAND := Doogee
-PRODUCT_MODEL := P2TH
-PRODUCT_MANUFACTURER := doogee
-PRODUCT_PLATFORM := mt6789
+DEVICE_PATH := device/doogee/P2TH
 
-# Inherit from those products. Most specific first.
-# $(SRC_TARGET_DIR) resolves the path correctly for Minimal Manifests
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+# Architecture
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 := 
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT_RUNTIME := cortex-a76
 
-# Inherit from P2TH device configuration
-$(call inherit-product, device/doogee/P2TH/device.mk)
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+TARGET_2ND_CPU_VARIANT := generic
+TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 
-# Inherit TWRP common configuration
-$(call inherit-product, vendor/twrp/config/twrp.mk)
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := P2TH
+TARGET_NO_BOOTLOADER := true
 
-# GKI Build Flags
-PRODUCT_BUILD_VENDOR_BOOT_IMAGE := true
-PRODUCT_BUILD_RECOVERY_IMAGE := true
+# Platform
+TARGET_BOARD_PLATFORM := mt6789
+TARGET_BOARD_PLATFORM_GPU := mali-g57
+
+# Kernel - Using your prebuilts
+BOARD_KERNEL_CMDLINE := bootconfig
+BOARD_KERNEL_PAGESIZE := 4096
+BOARD_BOOT_HEADER_VERSION := 4
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
+
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+
+# Partitions
+BOARD_FLASH_BLOCK_SIZE := 262144 # (PAGESIZE * 64)
+BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 100663296
+BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
+BOARD_HAS_ANY_DYNAMIC_PARTITION := true
+
+# System as Root
+BOARD_SUPPORTS_VBOOT := true
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
+
+# TWRP Configuration
+TW_THEME := portrait_hdpi
+TW_EXTRA_LANGUAGES := true
+TW_SCREEN_BLANK_ON_BOOT := true
+TW_INPUT_BLACKLIST := "hbtp_vm"
+TW_USE_TOOLBOX := true
+TW_INCLUDE_REPACKTOOLS := true
+
+# MediaTek specific
+BOARD_USES_MTK_HARDWARE := true
