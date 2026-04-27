@@ -6,15 +6,12 @@ PRODUCT_MODEL := P2TH
 PRODUCT_MANUFACTURER := doogee
 PRODUCT_PLATFORM := mt6789
 
-# Inherit from those products.
-# Standard AOSP inheritance paths with abspath lockdown.
-$(call inherit-product, $(abspath target/product/core_64bit.mk))
-$(call inherit-product, $(abspath target/product/full_base_telephony.mk))
-
 # Inherit from P2TH device configuration
+# This should contain your BoardConfig.mk which handles the 64-bit architecture
 $(call inherit-product, device/doogee/P2TH/device.mk)
 
 # Inherit TWRP common configuration
+# This replaces the need for the old core_64bit.mk
 $(call inherit-product, vendor/twrp/config/twrp.mk)
 
 # GKI Build Flags
