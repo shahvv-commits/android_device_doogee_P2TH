@@ -6,8 +6,8 @@ PRODUCT_MODEL := P2TH
 PRODUCT_MANUFACTURER := doogee
 PRODUCT_PLATFORM := mt6789
 
-# Inherit from those products.
-# Pointing to the core files we verified exist in the last log
+# Inherit from those products. Most specific first.
+# Standard AOSP inheritance paths
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
