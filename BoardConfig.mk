@@ -7,7 +7,7 @@ PRODUCT_MANUFACTURER := doogee
 PRODUCT_PLATFORM := mt6789
 
 # Inherit from those products. Most specific first.
-# $(SRC_TARGET_DIR) is the internal variable that ALWAYS points to the target files
+# $(SRC_TARGET_DIR) resolves the path correctly for Minimal Manifests
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
