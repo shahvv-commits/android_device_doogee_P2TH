@@ -15,7 +15,7 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 
-# 64-Bit App Support (Fixes the Build #110 Error)
+# 64-Bit App Support
 TARGET_SUPPORTS_64_BIT_APPS := true
 TARGET_USES_64_BIT_BINDER := true
 
@@ -27,15 +27,17 @@ TARGET_NO_BOOTLOADER := true
 TARGET_BOARD_PLATFORM := mt6789
 TARGET_BOARD_PLATFORM_GPU := mali-g57
 
-# Kernel - Using your prebuilts
+# Kernel - Boot Header V4 Configuration
 BOARD_KERNEL_CMDLINE := bootconfig
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_BOOT_HEADER_VERSION := 4
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
+# Prebuilt Files
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb
+BOARD_PREBUILT_DTBIMAGE := $(DEVICE_PATH)/prebuilt/dtb.img
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (PAGESIZE * 64)
