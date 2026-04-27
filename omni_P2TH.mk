@@ -6,10 +6,10 @@ PRODUCT_MODEL := P2TH
 PRODUCT_MANUFACTURER := doogee
 PRODUCT_PLATFORM := mt6789
 
-# Inherit from those products. Most specific first.
-# Using the official variable instead of a hardcoded path
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+# Inherit from those products.
+# In Minimal Manifests, 'target' is often at the root level.
+$(call inherit-product, target/product/core_64bit.mk)
+$(call inherit-product, target/product/full_base_telephony.mk)
 
 # Inherit from P2TH device configuration
 $(call inherit-product, device/doogee/P2TH/device.mk)
