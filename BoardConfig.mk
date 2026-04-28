@@ -48,6 +48,9 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 
 # A/B & GKI Settings
 AB_OTA_UPDATER := true
+AB_OTA_PARTITIONS += boot
+AB_OTA_PARTITIONS += vendor_boot
+AB_OTA_PARTITIONS += vbmeta
 TW_INCLUDE_REPACKTOOLS := true
 
 # TWRP UI / Features
