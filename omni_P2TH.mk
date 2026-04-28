@@ -10,6 +10,10 @@ PRODUCT_PLATFORM := mt6789
 # This tells the build system we are explicitly building for 64-bit
 TARGET_SUPPORTS_64_BIT_APPS := true
 
+# Inherit TWRP common configuration
+# Note: If you are building on an older Android 9.0/10.0 branch, change "vendor/twrp" to "vendor/omni"
+$(call inherit-product, vendor/twrp/config/common.mk)
+
 # Inherit from P2TH device configuration
 $(call inherit-product, device/doogee/P2TH/device.mk)
 
