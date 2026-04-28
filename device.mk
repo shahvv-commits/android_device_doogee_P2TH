@@ -14,12 +14,9 @@ AB_OTA_POSTINSTALL_CONFIG += \
     FILESYSTEM_TYPE_system=ext4 \
     POSTINSTALL_OPTIONAL_system=true
 
-# Boot control HAL (Modern Shared Version)
+# Boot control HAL (Recovery variants only to prevent vendor dir clashing)
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service \
     android.hardware.boot@1.0-impl.recovery \
-    bootctrl.mt6789 \
     bootctrl.mt6789.recovery
 
 # Update Engine
